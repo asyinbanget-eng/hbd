@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(135deg,#001f4d,#005eff,#00bfff);
+    overflow:hidden;
+}
+
+.card{
+    width:360px;
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:2px solid rgba(255,255,255,.2);
+    text-align:center;
+    color:white;
+    box-shadow:0 0 40px rgba(0,140,255,.6);
+    animation:float 3s ease-in-out infinite;
+}
+
+h1{
+    font-size:35px;
+    text-shadow:0 0 15px #7fd7ff;
+    animation:glow 2s infinite alternate;
+}
+
+h2{
+    margin-top:10px;
+    color:#b8ecff;
+}
+
+p{
+    margin-top:20px;
+    line-height:1.7;
+    font-size:16px;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#00bfff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#0099ff;
+    box-shadow:0 0 20px #00d9ff;
+}
+
+#pesan{
+    margin-top:20px;
+    font-size:18px;
+    color:#fff;
+    font-weight:bold;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #4fc3ff;
+    }
+    to{
+        text-shadow:0 0 30px #ffffff;
+    }
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+.bubble{
+    position:absolute;
+    bottom:-100px;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,.3);
+    border-radius:50%;
+    animation:naik 8s linear infinite;
+}
+
+@keyframes naik{
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh) scale(1.5);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Happy Birthday 🎉</h1>
+    <h2>Untuk Cowok Spesial 💙</h2>
+
+    <p>
+        Selamat ulang tahun!<br><b>ASYRAF HABIBULLAH</b><br>
+        Semoga semua impianmu tercapai,
+        selalu diberi kesehatan, kebahagiaan,
+        rezeki yang melimpah, dan menjadi
+        pribadi yang semakin hebat setiap harinya.
+        Tetap jadi dirimu yang kuat,
+        rendah hati, dan selalu tersenyum.
+    </p>
+
+    <button onclick="ucapan()">Klik Ucapan 💙</button>
+
+    <div id="pesan"></div>
+</div>
+
+<script>
+function ucapan(){
+document.getElementById("pesan").innerHTML=
+"💙 Selamat Ulang Tahun! Semoga tahun ini menjadi awal dari semua kebahagiaan dan kesuksesanmu. Jangan lupa bahagia selalu! 🎂✨";
+}
+
+for(let i=0;i<35;i++){
+let bubble=document.createElement("div");
+bubble.className="bubble";
+bubble.style.left=Math.random()*100+"vw";
+bubble.style.width=(10+Math.random()*25)+"px";
+bubble.style.height=bubble.style.width;
+bubble.style.animationDuration=(4+Math.random()*6)+"s";
+bubble.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(bubble);
+}
+</script>
+
+</body>
+</html>
